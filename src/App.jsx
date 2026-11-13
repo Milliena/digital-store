@@ -4,9 +4,8 @@ import './App.css'
 import { Routes, Route, Link, NavLink } from 'react-router-dom'
 import Produtos from './pages/Produtos'
 import DetalhesProduto from './pages/DetalhesProduto'
+import { listaProdutos } from './data/produtos'
 
-
-// Imagens do projeto
 import hero from './assets/hero.png'
 import supreme from './assets/supreme.png'
 import adidas from './assets/adidas.png'
@@ -15,20 +14,7 @@ import camiseta from './assets/camiseta.png'
 import calca from './assets/calca.png'
 import headphone from './assets/headphone.png'
 import tenis from './assets/tenis.png'
-import produto1 from './assets/produto1.png'
 import airJordan from './assets/airJordan.png'
-
-// Produtos da Home
-const produtos = [
-  { id: 1, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 2, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 3, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 4, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 5, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 6, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 7, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 },
-  { id: 8, nome: 'K-Swiss V8 - Masculino', preco: 200, desconto: 30 }
-]
 
 function Home() {
   return (
@@ -65,7 +51,9 @@ function Home() {
 
             <div className="collection-text">
               <h3>Novo drop Supreme</h3>
-              <Link to="/produtos?colecao=supreme">Comprar</Link>
+              <Link to="/produtos?colecao=supreme">
+                Comprar
+              </Link>
             </div>
 
             <img src={supreme} alt="Blusa Supreme" />
@@ -76,7 +64,9 @@ function Home() {
 
             <div className="collection-text">
               <h3>Coleção Adidas</h3>
-              <Link to="/produtos?colecao=adidas">Comprar</Link>
+              <Link to="/produtos?colecao=adidas">
+                Comprar
+              </Link>
             </div>
 
             <img src={adidas} alt="Tênis Adidas" />
@@ -87,7 +77,9 @@ function Home() {
 
             <div className="collection-text">
               <h3>Novo Beats Bass</h3>
-              <Link to="/produtos?colecao=beats">Comprar</Link>
+              <Link to="/produtos?colecao=beats">
+                Comprar
+              </Link>
             </div>
 
             <img src={beats} alt="Headphone Beats" />
@@ -97,28 +89,40 @@ function Home() {
 
       {/* CATEGORIAS */}
       <section className="categories">
-        <h2>Coleções em destaque</h2>
+        <h2>Categorias em destaque</h2>
 
         <div className="categories-grid">
-          <div className="category">
+          <Link
+            to="/produtos?categoria=Camisetas"
+            className="category"
+          >
             <img src={camiseta} alt="Camisetas" />
             <p>Camisetas</p>
-          </div>
+          </Link>
 
-          <div className="category">
+          <Link
+            to="/produtos?categoria=Calças"
+            className="category"
+          >
             <img src={calca} alt="Calças" />
             <p>Calças</p>
-          </div>
+          </Link>
 
-          <div className="category">
+          <Link
+            to="/produtos?categoria=Headphones"
+            className="category"
+          >
             <img src={headphone} alt="Headphones" />
             <p>Headphones</p>
-          </div>
+          </Link>
 
-          <div className="category">
+          <Link
+            to="/produtos?categoria=Tênis"
+            className="category"
+          >
             <img src={tenis} alt="Tênis" />
             <p>Tênis</p>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -130,36 +134,48 @@ function Home() {
         </div>
 
         <div className="products-grid">
-          {produtos.map((produto) => (
-            <article className="product-card" key={produto.id}>
-              <div className="product-image">
-                <span className="discount">
-                  {produto.desconto}% OFF
-                </span>
-
-                <img src={produto1} alt={produto.nome} />
-              </div>
-
-              <div className="product-info">
-                <p className="product-category">Tênis</p>
-                <h3>{produto.nome}</h3>
-
-                <div className="product-prices">
-                  <span className="old-price">
-                    R$ {produto.preco.toFixed(2)}
+          {listaProdutos.map((produto) => (
+            <Link
+              to={`/produto/${produto.id}`}
+              className="link-produto"
+              key={produto.id}
+            >
+              <article className="product-card">
+                <div className="product-image">
+                  <span className="discount">
+                    {produto.desconto}% OFF
                   </span>
 
-                  <span className="new-price">
-                    R$ {(produto.preco * (1 - produto.desconto / 100)).toFixed(2)}
-                  </span>
+                  <img
+                    src={produto.imagem}
+                    alt={produto.nome}
+                  />
                 </div>
-              </div>
-            </article>
+
+                <div className="product-info">
+                  <p className="product-category">
+                    {produto.categoria}
+                  </p>
+
+                  <h3>{produto.nome}</h3>
+
+                  <div className="product-prices">
+                    <span className="old-price">
+                      R$ {produto.preco.toFixed(2)}
+                    </span>
+
+                    <span className="new-price">
+                      R$ {(produto.preco * (1 - produto.desconto / 100)).toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* OFERTA ESPECIAL AIR JORDAN */}
+      {/* OFERTA ESPECIAL */}
       <section className="special-offer">
         <div className="special-offer-image">
           <img
@@ -169,7 +185,9 @@ function Home() {
         </div>
 
         <div className="special-offer-content">
-          <p className="special-offer-label">Oferta especial</p>
+          <p className="special-offer-label">
+            Oferta especial
+          </p>
 
           <h2>Air Jordan edição de colecionador</h2>
 
@@ -179,7 +197,10 @@ function Home() {
             conforto e personalidade.
           </p>
 
-          <Link to="/produtos" className="special-offer-button">
+          <Link
+            to="/produto/5"
+            className="special-offer-button"
+          >
             Ver Oferta
           </Link>
         </div>
@@ -192,77 +213,85 @@ function App() {
   return (
     <>
       {/* CABEÇALHO */}
-     
-{/* CABEÇALHO */}
-<header className="header">
-  <div className="header-top">
-    <Link to="/" className="logo">
-      <span className="logo-icon">D</span>
-      Digital Store
-    </Link>
+      <header className="header">
+        <div className="header-top">
+          <Link to="/" className="logo">
+            <span className="logo-icon">D</span>
+            Digital Store
+          </Link>
 
-    <div className="search">
-      <input
-        type="text"
-        placeholder="Pesquisar produto..."
-        aria-label="Pesquisar produto"
-      />
-      <button type="button" aria-label="Pesquisar">
-        ⌕
-      </button>
-    </div>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="Pesquisar produto..."
+              aria-label="Pesquisar produto"
+            />
 
-    <div className="header-actions">
-      <a href="#" className="register">
-        Cadastre-se
-      </a>
+            <button type="button" aria-label="Pesquisar">
+              ⌕
+            </button>
+          </div>
 
-      <button type="button" className="login">
-        Entrar
-      </button>
+          <div className="header-actions">
+            <a href="#" className="register">
+              Cadastre-se
+            </a>
 
-      <a href="#" className="cart" aria-label="Carrinho">
-        🛒
-        <span>2</span>
-      </a>
-    </div>
-  </div>
+            <button type="button" className="login">
+              Entrar
+            </button>
 
-  <nav className="navigation">
-    <NavLink
-      to="/"
-      end
-      className={({ isActive }) => isActive ? 'active' : ''}
-    >
-      Home
-    </NavLink>
+            <a
+              href="#"
+              className="cart"
+              aria-label="Carrinho"
+            >
+              🛒
+              <span>2</span>
+            </a>
+          </div>
+        </div>
 
-    <NavLink
-      to="/produtos"
-      className={({ isActive }) => isActive ? 'active' : ''}
-    >
-      Produtos
-    </NavLink>
+        <nav className="navigation">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              isActive ? 'active' : ''
+            }
+          >
+            Home
+          </NavLink>
 
-    <a href="#">Categorias</a>
-    <a href="#">Meus Pedidos</a>
-  </nav>
-</header>
+          <NavLink
+            to="/produtos"
+            className={({ isActive }) =>
+              isActive ? 'active' : ''
+            }
+          >
+            Produtos
+          </NavLink>
 
+          <a href="#">Categorias</a>
+          <a href="#">Meus Pedidos</a>
+        </nav>
+      </header>
 
       {/* PÁGINAS */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/produtos" element={<Produtos />} />
-          <Route path="/produto/:id" element={<DetalhesProduto />} />
+          <Route
+            path="/produto/:id"
+            element={<DetalhesProduto />}
+          />
         </Routes>
       </main>
 
       {/* RODAPÉ */}
       <footer className="footer">
         <div className="footer-content">
-
           <div className="footer-about">
             <Link to="/" className="footer-logo">
               <span className="footer-logo-icon">D</span>

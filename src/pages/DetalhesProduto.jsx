@@ -1,86 +1,14 @@
 
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-
-import produto1 from '../assets/produto1.png'
-import adidas from '../assets/adidas.png'
-import supreme from '../assets/supreme.png'
-import beats from '../assets/beats.png'
-import airJordan from '../assets/airJordan.png'
+import { listaProdutos } from '../data/produtos'
 
 import './DetalhesProduto.css'
-
-const produtos = [
-  {
-    id: 1,
-    nome: 'K-Swiss V8 - Masculino',
-    preco: 200,
-    desconto: 30,
-    imagem: produto1,
-    categoria: 'Tênis'
-  },
-  {
-    id: 2,
-    nome: 'Tênis Adidas',
-    preco: 350,
-    desconto: 30,
-    imagem: adidas,
-    categoria: 'Tênis'
-  },
-  {
-    id: 3,
-    nome: 'Camiseta Supreme',
-    preco: 180,
-    desconto: 30,
-    imagem: supreme,
-    categoria: 'Camisetas'
-  },
-  {
-    id: 4,
-    nome: 'Headphone Beats Bass',
-    preco: 450,
-    desconto: 30,
-    imagem: beats,
-    categoria: 'Headphones'
-  },
-  {
-    id: 5,
-    nome: 'Air Jordan Colecionador',
-    preco: 600,
-    desconto: 20,
-    imagem: airJordan,
-    categoria: 'Tênis'
-  },
-  {
-    id: 6,
-    nome: 'K-Swiss V8 Casual',
-    preco: 250,
-    desconto: 20,
-    imagem: produto1,
-    categoria: 'Tênis'
-  },
-  {
-    id: 7,
-    nome: 'Tênis Adidas Esportivo',
-    preco: 400,
-    desconto: 25,
-    imagem: adidas,
-    categoria: 'Tênis'
-  },
-  {
-    id: 8,
-    nome: 'Camiseta Supreme Classic',
-    preco: 220,
-    desconto: 15,
-    imagem: supreme,
-    categoria: 'Camisetas'
-  }
-]
 
 function DetalhesProduto() {
   const { id } = useParams()
 
-  const produto = produtos.find(
+  const produto = listaProdutos.find(
     (item) => item.id === Number(id)
   )
 
@@ -104,7 +32,9 @@ function DetalhesProduto() {
       ? ['38', '39', '40', '41', '42']
       : produto.categoria === 'Camisetas'
         ? ['P', 'M', 'G', 'GG']
-        : []
+        : produto.categoria === 'Calças'
+          ? ['36', '38', '40', '42', '44']
+          : []
 
   function comprar() {
     if (tamanhos.length > 0 && !tamanho) {
@@ -120,7 +50,6 @@ function DetalhesProduto() {
   return (
     <div className="detalhes-pagina">
       <div className="detalhes-container">
-
         <p className="detalhes-caminho">
           <Link to="/">Home</Link>
           {' / '}
@@ -130,7 +59,6 @@ function DetalhesProduto() {
         </p>
 
         <div className="detalhes-conteudo">
-
           <div className="detalhes-galeria">
             <div className="detalhes-imagem">
               <span className="detalhes-desconto">
@@ -145,7 +73,6 @@ function DetalhesProduto() {
           </div>
 
           <div className="detalhes-informacoes">
-
             <span className="detalhes-categoria">
               {produto.categoria}
             </span>
@@ -193,9 +120,7 @@ function DetalhesProduto() {
                       key={opcao}
                       type="button"
                       className={
-                        tamanho === opcao
-                          ? 'selecionado'
-                          : ''
+                        tamanho === opcao ? 'selecionado' : ''
                       }
                       onClick={() => {
                         setTamanho(opcao)
@@ -222,7 +147,6 @@ function DetalhesProduto() {
                 {mensagem}
               </p>
             )}
-
           </div>
         </div>
 
@@ -231,7 +155,6 @@ function DetalhesProduto() {
             ← Voltar para todos os produtos
           </Link>
         </div>
-
       </div>
     </div>
   )
