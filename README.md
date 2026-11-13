@@ -1,16 +1,98 @@
-# React + Vite
+# Digital Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto final de Front-end desenvolvido durante o curso da Digital College.
 
-Currently, two official plugins are available:
+A Digital Store é uma loja virtual demonstrativa, criada com React, JavaScript e CSS, inspirada no layout da Drip Store.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O objetivo do projeto é aplicar conhecimentos de desenvolvimento web, componentes React, navegação entre páginas, filtros de produtos e responsividade.
 
-## React Compiler
+## Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- HTML5
+- CSS3
+- Vite
+- React Router
+- Git e GitHub
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Página inicial com banner promocional.
+- Coleções e categorias em destaque.
+- Catálogo com 13 produtos.
+- Filtros por marca e categoria.
+- Ordenação por preço.
+- Página de detalhes dos produtos.
+- Seleção de tamanhos para roupas e calçados.
+- Exibição de preços e descontos.
+- Layout responsivo para computadores e celulares.
+
+## Páginas do projeto
+
+| Página | Rota |
+|---|---|
+| Home | `/` |
+| Listagem de produtos | `/produtos` |
+| Detalhes do produto | `/produto/:id` |
+
+## Como executar
+
+É necessário ter o Node.js instalado.
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/Milliena/digital-store.git
+```
+
+Entre na pasta:
+
+```bash
+cd digital-store
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o projeto:
+
+```bash
+npm run dev
+```
+
+Abra no navegador o endereço informado pelo terminal.
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+## Estrutura do projeto
+
+- `src/assets/` — imagens utilizadas na loja.
+- `src/data/produtos.js` — catálogo de produtos.
+- `src/pages/Produtos.jsx` — listagem e filtros.
+- `src/pages/DetalhesProduto.jsx` — informações individuais dos produtos.
+- `src/App.jsx` — estrutura principal e navegação.
+- `src/App.css` — estilização da aplicação.
+
+## Observações
+
+Este projeto foi desenvolvido para fins educacionais. As funcionalidades de autenticação, carrinho e finalização de compras são demonstrativas ou estão em desenvolvimento.
+
+## Desenvolvedora
+
+**Camile Araújo Alexandre**
+
+Curso de Front-end — Digital College
+
+GitHub: [Milliena](https://github.com/Milliena)
+
+---
+
+Projeto desenvolvido em 2026.
