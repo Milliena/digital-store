@@ -1,0 +1,383 @@
+
+/* PÁGINA DE LISTAGEM */
+
+.pagina-produtos {
+  background-color: #f9f8fe;
+  padding: 45px 8% 80px;
+  min-height: 70vh;
+}
+
+.produtos-topo {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.produtos-topo h1 {
+  color: #474747;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.produtos-topo p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* ORDENAÇÃO */
+
+.ordenacao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.ordenacao label {
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.ordenacao select {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #474747;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 0;
+}
+
+/* LAYOUT PRINCIPAL */
+
+.produtos-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* FILTROS */
+
+.filtros {
+  background-color: white;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.filtros h2 {
+  font-size: 17px;
+  color: #474747;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ddd;
+}
+
+.filtro-grupo {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.filtro-grupo h3 {
+  font-size: 15px;
+  color: #474747;
+  margin-bottom: 15px;
+}
+
+.filtro-opcao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #474747;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filtro-opcao input {
+  width: 17px;
+  height: 17px;
+  accent-color: #c92071;
+  cursor: pointer;
+}
+
+.limpar-filtros {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #c92071;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.limpar-filtros:hover {
+  background-color: #a9165c;
+}
+
+/* BOTÃO MOBILE */
+
+.botao-filtros-mobile {
+  display: none;
+}
+
+/* CARDS */
+
+.listagem-produtos {
+  min-width: 0;
+}
+
+.listagem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 18px;
+}
+
+.link-produto {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-produto:visited {
+  color: inherit;
+}
+
+.link-produto:hover {
+  text-decoration: none;
+}
+
+.item-produto {
+  min-width: 0;
+  transition: transform 0.2s ease;
+}
+
+.link-produto:hover .item-produto {
+  transform: translateY(-5px);
+}
+
+.item-produto-imagem {
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.item-produto-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.item-produto:hover .item-produto-imagem img {
+  transform: scale(1.05);
+}
+
+.item-desconto {
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  left: 15px;
+  background-color: #e7ff86;
+  color: #474747;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+.item-produto-info {
+  padding-top: 14px;
+}
+
+.item-produto-info p {
+  font-size: 12px;
+  color: #8f8f8f;
+  margin-bottom: 6px;
+}
+
+.item-produto-info h3 {
+  color: #474747;
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.item-precos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.preco-antigo {
+  color: #8f8f8f;
+  text-decoration: line-through;
+  font-size: 15px;
+}
+
+.item-precos strong {
+  color: #1f1f1f;
+  font-size: 17px;
+}
+
+.sem-produtos {
+  background-color: white;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.sem-produtos h3 {
+  margin-bottom: 10px;
+}
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+  .produtos-conteudo {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .listagem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 768px) {
+  .pagina-produtos {
+    padding: 25px 15px 50px;
+  }
+
+  .produtos-topo {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 20px;
+    gap: 15px;
+  }
+
+  .produtos-topo h1 {
+    font-size: 22px;
+  }
+
+  .ordenacao {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  .botao-filtros-mobile {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 14px;
+    background-color: #c92071;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .botao-filtros-mobile:hover {
+    background-color: #a9165c;
+  }
+
+  .produtos-conteudo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .filtros {
+    display: none;
+    padding: 20px;
+  }
+
+  .filtros.filtros-abertos {
+    display: block;
+  }
+
+  .listagem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 12px;
+  }
+
+  .item-produto-imagem {
+    padding: 12px;
+  }
+
+  .item-produto-info h3 {
+    font-size: 14px;
+  }
+
+  .item-precos {
+    gap: 5px;
+  }
+
+  .preco-antigo {
+    font-size: 12px;
+  }
+
+  .item-precos strong {
+    font-size: 15px;
+  }
+
+  .item-desconto {
+    top: 8px;
+    left: 8px;
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 480px) {
+  .listagem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 10px;
+  }
+
+  .item-produto-imagem {
+    padding: 8px;
+  }
+
+  .item-produto-info {
+    padding-top: 10px;
+  }
+
+  .item-produto-info h3 {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .item-precos {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

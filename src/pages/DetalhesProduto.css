@@ -1,0 +1,280 @@
+
+.detalhes-pagina {
+  background-color: #f9f8fe;
+  min-height: 80vh;
+  padding: 40px 20px 80px;
+  color: #1f1f1f;
+}
+
+.detalhes-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.detalhes-caminho {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.detalhes-caminho a {
+  color: #474747;
+  text-decoration: none;
+}
+
+.detalhes-caminho a:hover {
+  color: #c92071;
+}
+
+.detalhes-conteudo {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 55px;
+  align-items: start;
+}
+
+/* IMAGEM */
+
+.detalhes-galeria {
+  width: 100%;
+}
+
+.detalhes-imagem {
+  background: #e2e3ff;
+  border-radius: 8px;
+  min-height: 440px;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.detalhes-imagem img {
+  width: 100%;
+  max-width: 480px;
+  max-height: 370px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.detalhes-imagem img:hover {
+  transform: scale(1.05);
+}
+
+.detalhes-desconto {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #e7ff86;
+  color: #474747;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 25px;
+}
+
+/* INFORMAÇÕES */
+
+.detalhes-informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detalhes-categoria {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8f8f8f;
+  margin-bottom: 10px;
+}
+
+.detalhes-informacoes h1 {
+  font-size: 32px;
+  line-height: 1.3;
+  color: #1f1f1f;
+  margin: 0 0 15px;
+}
+
+.detalhes-avaliacao {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.detalhes-estrelas {
+  color: #f6aa1c;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+.detalhes-nota {
+  background: #f6aa1c;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.detalhes-avaliacoes {
+  color: #8f8f8f;
+  font-size: 13px;
+}
+
+/* PREÇOS */
+
+.detalhes-precos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.detalhes-preco-antigo {
+  color: #8f8f8f;
+  text-decoration: line-through;
+  font-size: 17px;
+}
+
+.detalhes-preco-atual {
+  color: #1f1f1f;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* DESCRIÇÃO */
+
+.detalhes-informacoes h3 {
+  color: #474747;
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.detalhes-descricao {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* TAMANHOS */
+
+.detalhes-tamanhos {
+  margin-bottom: 30px;
+}
+
+.tamanhos-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tamanhos-opcoes button {
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: #474747;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tamanhos-opcoes button:hover {
+  border-color: #c92071;
+  color: #c92071;
+}
+
+.tamanhos-opcoes button.selecionado {
+  background: #c92071;
+  color: white;
+  border-color: #c92071;
+}
+
+/* COMPRAR */
+
+.detalhes-comprar {
+  width: 100%;
+  max-width: 260px;
+  background: #c92071;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 17px 25px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.detalhes-comprar:hover {
+  background: #a8195d;
+}
+
+.detalhes-mensagem {
+  margin-top: 15px;
+  color: #c92071;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.detalhes-voltar {
+  margin-top: 45px;
+}
+
+.detalhes-voltar a {
+  color: #c92071;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.detalhes-voltar a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+  .detalhes-conteudo {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .detalhes-imagem {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .detalhes-pagina {
+    padding: 25px 15px 50px;
+  }
+
+  .detalhes-informacoes h1 {
+    font-size: 25px;
+  }
+
+  .detalhes-imagem {
+    min-height: 280px;
+    padding: 20px;
+  }
+
+  .detalhes-imagem img {
+    max-height: 250px;
+  }
+
+  .detalhes-preco-atual {
+    font-size: 26px;
+  }
+
+  .detalhes-comprar {
+    max-width: 100%;
+  }
+}
