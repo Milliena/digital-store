@@ -4,6 +4,8 @@ import './App.css'
 import { Routes, Route, Link, NavLink } from 'react-router-dom'
 import Produtos from './pages/Produtos'
 import DetalhesProduto from './pages/DetalhesProduto'
+import Categorias from './pages/Categorias'
+import MeusPedidos from './pages/MeusPedidos'
 import { listaProdutos } from './data/produtos'
 
 import hero from './assets/hero.png'
@@ -87,7 +89,7 @@ function Home() {
         </div>
       </section>
 
-      {/* CATEGORIAS */}
+      {/* CATEGORIAS EM DESTAQUE */}
       <section className="categories">
         <h2>Categorias em destaque</h2>
 
@@ -252,6 +254,7 @@ function App() {
           </div>
         </div>
 
+        {/* MENU DE NAVEGAÇÃO */}
         <nav className="navigation">
           <NavLink
             to="/"
@@ -272,16 +275,46 @@ function App() {
             Produtos
           </NavLink>
 
-          <a href="#">Categorias</a>
-          <a href="#">Meus Pedidos</a>
+          <NavLink
+            to="/categorias"
+            className={({ isActive }) =>
+              isActive ? 'active' : ''
+            }
+          >
+            Categorias
+          </NavLink>
+
+          <NavLink
+            to="/meus-pedidos"
+            className={({ isActive }) =>
+              isActive ? 'active' : ''
+            }
+          >
+            Meus Pedidos
+          </NavLink>
         </nav>
       </header>
 
-      {/* PÁGINAS */}
+      {/* ROTAS DAS PÁGINAS */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/produtos" element={<Produtos />} />
+
+          <Route
+            path="/produtos"
+            element={<Produtos />}
+          />
+
+          <Route
+            path="/categorias"
+            element={<Categorias />}
+          />
+
+          <Route
+            path="/meus-pedidos"
+            element={<MeusPedidos />}
+          />
+
           <Route
             path="/produto/:id"
             element={<DetalhesProduto />}
@@ -336,20 +369,32 @@ function App() {
 
           <div className="footer-column">
             <h3>Informação</h3>
-            <a href="#">Sobre Drip Store</a>
+            <a href="#">Sobre Digital Store</a>
             <a href="#">Segurança</a>
             <a href="#">Wishlist</a>
             <a href="#">Blog</a>
             <a href="#">Trabalhe conosco</a>
-            <a href="#">Meus Pedidos</a>
+            <Link to="/meus-pedidos">Meus Pedidos</Link>
           </div>
 
           <div className="footer-column">
             <h3>Categorias</h3>
-            <a href="#">Camisetas</a>
-            <a href="#">Calças</a>
-            <a href="#">Headphones</a>
-            <a href="#">Tênis</a>
+
+            <Link to="/produtos?categoria=Camisetas">
+              Camisetas
+            </Link>
+
+            <Link to="/produtos?categoria=Calças">
+              Calças
+            </Link>
+
+            <Link to="/produtos?categoria=Headphones">
+              Headphones
+            </Link>
+
+            <Link to="/produtos?categoria=Tênis">
+              Tênis
+            </Link>
           </div>
 
           <div className="footer-column footer-contact">
