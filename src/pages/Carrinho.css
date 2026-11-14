@@ -1,0 +1,152 @@
+
+.carrinho-pagina {
+  min-height: 65vh;
+  padding: 50px 8%;
+  background: #f9f8fe;
+}
+
+.carrinho-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carrinho-container h1 {
+  margin-bottom: 30px;
+  color: #1f1f1f;
+}
+
+.carrinho-vazio,
+.carrinho-item,
+.carrinho-resumo {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.carrinho-vazio {
+  text-align: center;
+}
+
+.carrinho-vazio p {
+  margin-bottom: 20px;
+}
+
+.carrinho-pagina a {
+  color: #c92071;
+}
+
+.carrinho-lista {
+  display: grid;
+  gap: 15px;
+}
+
+.carrinho-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.carrinho-item img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.carrinho-info {
+  flex: 1;
+}
+
+.carrinho-info h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.carrinho-info p {
+  margin-bottom: 8px;
+}
+
+.carrinho-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carrinho-quantidade button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 5px;
+}
+
+.carrinho-subtotal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.carrinho-subtotal button {
+  border: none;
+  background: transparent;
+  color: #c92071;
+}
+
+.carrinho-resumo {
+  margin-top: 25px;
+  margin-left: auto;
+  max-width: 350px;
+}
+
+.carrinho-resumo h2 {
+  margin-bottom: 20px;
+}
+
+.carrinho-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.carrinho-finalizar {
+  width: 100%;
+  background: #c92071;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.carrinho-finalizar:hover {
+  background: #a9165c;
+}
+
+@media (max-width: 768px) {
+  .carrinho-pagina {
+    padding: 30px 20px;
+  }
+
+  .carrinho-item {
+    flex-wrap: wrap;
+  }
+
+  .carrinho-item img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .carrinho-info {
+    flex: 1 1 calc(100% - 110px);
+  }
+
+  .carrinho-subtotal {
+    margin-left: auto;
+  }
+
+  .carrinho-resumo {
+    max-width: none;
+  }
+}

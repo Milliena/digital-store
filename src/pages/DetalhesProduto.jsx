@@ -2,11 +2,13 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { listaProdutos } from '../data/produtos'
+import { useCarrinho } from '../context/CarrinhoContext'
 
 import './DetalhesProduto.css'
 
 function DetalhesProduto() {
   const { id } = useParams()
+  const { adicionarProduto } = useCarrinho()
 
   const produto = listaProdutos.find(
     (item) => item.id === Number(id)
@@ -36,16 +38,18 @@ function DetalhesProduto() {
           ? ['36', '38', '40', '42', '44']
           : []
 
-  function comprar() {
-    if (tamanhos.length > 0 && !tamanho) {
-      setMensagem('Selecione um tamanho antes de continuar.')
-      return
-    }
-
-    setMensagem(
-      'Produto selecionado! Carrinho em desenvolvimento.'
-    )
+  
+function comprar() {
+  if (tamanhos.length > 0 && !tamanho) {
+    setMensagem('Selecione um tamanho antes de continuar.')
+    return
   }
+
+  adicionarProduto(produto, tamanho)
+
+  setMensagem('Produto adicionado ao carrinho com sucesso!')
+}
+
 
   return (
     <div className="detalhes-pagina">

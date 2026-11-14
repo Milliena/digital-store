@@ -6,7 +6,9 @@ import Produtos from './pages/Produtos'
 import DetalhesProduto from './pages/DetalhesProduto'
 import Categorias from './pages/Categorias'
 import MeusPedidos from './pages/MeusPedidos'
+import Carrinho from './pages/Carrinho'
 import { listaProdutos } from './data/produtos'
+import { useCarrinho } from './context/CarrinhoContext'
 
 import hero from './assets/hero.png'
 import supreme from './assets/supreme.png'
@@ -212,6 +214,8 @@ function Home() {
 }
 
 function App() {
+  const { quantidadeTotal } = useCarrinho()
+
   return (
     <>
       {/* CABEÇALHO */}
@@ -243,14 +247,16 @@ function App() {
               Entrar
             </button>
 
-            <a
-              href="#"
-              className="cart"
-              aria-label="Carrinho"
-            >
-              🛒
-              <span>2</span>
-            </a>
+            
+<Link
+  to="/carrinho"
+  className="cart"
+  aria-label={`Carrinho com ${quantidadeTotal} produtos`}
+>
+  🛒
+  <span>{quantidadeTotal}</span>
+</Link>
+
           </div>
         </div>
 
@@ -318,6 +324,10 @@ function App() {
           <Route
             path="/produto/:id"
             element={<DetalhesProduto />}
+          />
+
+          <Route 
+          path="/carrinho" element={<Carrinho />} 
           />
         </Routes>
       </main>
