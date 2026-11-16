@@ -85,11 +85,10 @@ npm run build
 
 Este projeto foi desenvolvido para fins educacionais. As funcionalidades de autenticação, carrinho e finalização de compras são demonstrativas ou estão em desenvolvimento.
 
-## Desenvolvedora
+### Integrantes do grupo
 
-**Camile Araújo Alexandre**
-
-Curso de Front-end — Digital College
+- Camile Araújo Alexandre
+- Jamyle Pereira da Silva
 
 GitHub: [Milliena](https://github.com/Milliena)
 
