@@ -94,4 +94,4 @@ GitHub: [Milliena](https://github.com/Milliena)
 
 ---
 
-Projeto desenvolvido em 2026.
+Projeto desenvolvido em equipe por Mile e Jamyle em 2026.
